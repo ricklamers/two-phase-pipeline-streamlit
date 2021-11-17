@@ -1,0 +1,121 @@
+{
+    "name": "Main",
+    "parameters": {},
+    "services": {
+        "streamlit": {
+            "binds": {
+                "/data": "/data",
+                "/project-dir": "/usr/src/app/src"
+            },
+            "command": "-c 'umask 002 && touch /usr/src/app/src/streamlit.py && cd /usr/src/app/src && streamlit run streamlit.py'",
+            "entrypoint": "bash",
+            "env_variables": {
+                "STREAMLIT_SERVER_BASE_URL_PATH": "$BASE_PATH_PREFIX_8501"
+            },
+            "image": "orchest/streamlit",
+            "name": "streamlit",
+            "ports": [
+                8501
+            ],
+            "preserve_base_path": true,
+            "scope": [
+                "interactive",
+                "noninteractive"
+            ]
+        }
+    },
+    "settings": {
+        "auto_eviction": false,
+        "data_passing_memory_size": "1GB"
+    },
+    "steps": {
+        "7c17b56a-5fa5-48c1-b341-b88d1811b8a2": {
+            "environment": "fe95261b-50d7-481e-b1a3-765059808818",
+            "file_path": "two-phase-status.py",
+            "incoming_connections": [
+                "84b08362-134a-4b20-9162-ba17390521e0"
+            ],
+            "kernel": {
+                "display_name": "Python 3",
+                "name": "python"
+            },
+            "meta_data": {
+                "hidden": false,
+                "position": [
+                    605.5,
+                    302
+                ]
+            },
+            "parameters": {
+                "action": "poll"
+            },
+            "title": "[Two phase] poll",
+            "uuid": "7c17b56a-5fa5-48c1-b341-b88d1811b8a2"
+        },
+        "84b08362-134a-4b20-9162-ba17390521e0": {
+            "environment": "fe95261b-50d7-481e-b1a3-765059808818",
+            "file_path": "work.py",
+            "incoming_connections": [
+                "cdd6acdb-8f75-4d75-9c11-4d91ca1602be"
+            ],
+            "kernel": {
+                "display_name": "Python 3",
+                "name": "python"
+            },
+            "meta_data": {
+                "hidden": false,
+                "position": [
+                    361.5,
+                    302
+                ]
+            },
+            "parameters": {},
+            "title": "Pipeline phase 1",
+            "uuid": "84b08362-134a-4b20-9162-ba17390521e0"
+        },
+        "c4f5578e-c8c4-4d3f-81ef-43296851b74a": {
+            "environment": "fe95261b-50d7-481e-b1a3-765059808818",
+            "file_path": "more-work.py",
+            "incoming_connections": [
+                "7c17b56a-5fa5-48c1-b341-b88d1811b8a2"
+            ],
+            "kernel": {
+                "display_name": "Python 3",
+                "name": "python"
+            },
+            "meta_data": {
+                "hidden": false,
+                "position": [
+                    850.5,
+                    302
+                ]
+            },
+            "parameters": {},
+            "title": "Pipeline phase 2",
+            "uuid": "c4f5578e-c8c4-4d3f-81ef-43296851b74a"
+        },
+        "cdd6acdb-8f75-4d75-9c11-4d91ca1602be": {
+            "environment": "fe95261b-50d7-481e-b1a3-765059808818",
+            "file_path": "two-phase-status.py",
+            "incoming_connections": [],
+            "kernel": {
+                "display_name": "Python 3",
+                "name": "python"
+            },
+            "meta_data": {
+                "hidden": false,
+                "position": [
+                    116.5,
+                    302
+                ]
+            },
+            "parameters": {
+                "action": "start"
+            },
+            "title": "[Two phase] Start",
+            "uuid": "cdd6acdb-8f75-4d75-9c11-4d91ca1602be"
+        }
+    },
+    "uuid": "c0c6daf3-c026-491b-b065-080bbdeb7b14",
+    "version": "1.0.0"
+}
