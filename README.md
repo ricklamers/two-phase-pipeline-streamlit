@@ -1,5 +1,7 @@
 # Two phase pipeline + Streamlit
 
+[![Open in Orchest](https://github.com/orchest/orchest-examples/raw/main/imgs/open_in_orchest.svg)](https://cloud.orchest.io/?import_url=https://github.com/ricklamers/two-phase-pipeline-streamlit/)
+
 This is an example project that demonstrates how to create a pipeline that consists of **two phases of execution**.
 
 In between the two phases the computations of the first phase influence what should happen in the second phase. It allows for a **human in the loop** scenario.
